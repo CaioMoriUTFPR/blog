@@ -2,8 +2,9 @@ import express, { urlencoded } from 'express';
 
 const app = express();
 const porta = 80;
-const conteudoInicial =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu turpis lacinia, vehicula dolor sollicitudin, blandit felis.';
+const conteudoInicial = 'Lorem ipsum.';
+const conteudoContato = 'dolor sit amet.';
+const conteudoSobre = 'consectetur adipiscing elit.';
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -12,6 +13,18 @@ app.use(urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.render('index', {
     conteudo: conteudoInicial,
+  });
+});
+
+app.get('/contato', (req, res) => {
+  res.render('contato', {
+    conteudo: conteudoContato,
+  });
+});
+
+app.get('/sobre', (req, res) => {
+  res.render('sobre', {
+    conteudo: conteudoSobre,
   });
 });
 
