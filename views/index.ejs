@@ -3,4 +3,7 @@
 <h1>Página Inicial</h1>
 <p><%= conteudo %></p>
 
-<%- include('partials/rodape') -%>
+<% for(var i = 0; i < postagem.length; i++) { %>
+<h2>Post <%= i + 1 %></h2>
+<p><%= postagem[i] %></p>
+<% } %> <%- include('partials/rodape') -%>

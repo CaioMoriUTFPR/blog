@@ -5,6 +5,7 @@ const porta = 80;
 const conteudoInicial = 'Lorem ipsum.';
 const conteudoContato = 'dolor sit amet.';
 const conteudoSobre = 'consectetur adipiscing elit.';
+const postagem = [];
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -13,6 +14,7 @@ app.use(urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.render('index', {
     conteudo: conteudoInicial,
+    postagem: postagem,
   });
 });
 
@@ -28,8 +30,12 @@ app.get('/sobre', (req, res) => {
   });
 });
 
-app.post('/', (req, res) => {
-  req.body;
+app.get('/postar', (req, res) => {
+  res.render('postar');
+});
+
+app.post('/postar', (req, res) => {
+  postagem.push(req.body.textoPostar);
   res.redirect('/');
 });
 
