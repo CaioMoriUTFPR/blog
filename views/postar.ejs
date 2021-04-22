@@ -2,8 +2,32 @@
 
 <h1>Nova Postagem</h1>
 <form action="/postar" method="post">
-  <input type="text" autocomplete="off" name="textoPostar" />
-  <button type="submit" name="botaoPostar">Postar</button>
+  <div class="mb-3 form-group">
+    <label for="tituloPost" class="form-label">Título</label>
+    <input
+      type="text"
+      class="form-control"
+      id="tituloPost"
+      name="tituloPost"
+      autocomplete="off"
+      required
+    />
+  </div>
+  <div class="mb-3 form-group">
+    <label for="conteudoPost" class="form-label">Conteúdo</label>
+    <textarea
+      class="form-control"
+      id="conteudoPost"
+      rows="3"
+      name="conteudoPost"
+      required
+    ></textarea>
+  </div>
+  <div class="d-grid gap-2 col-6 mx-auto form-group">
+    <button class="btn btn-primary mt-3 p-3 border" type="submit" name="botaoPostar">
+      Postar
+    </button>
+  </div>
 </form>
 
 <%- include('partials/rodape') -%>

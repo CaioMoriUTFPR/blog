@@ -6,6 +6,7 @@ const conteudoInicial = 'Lorem ipsum.';
 const conteudoContato = 'dolor sit amet.';
 const conteudoSobre = 'consectetur adipiscing elit.';
 const postagem = [];
+const tituloPost = [];
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
   res.render('index', {
     conteudo: conteudoInicial,
     postagem: postagem,
+    titulo: tituloPost,
   });
 });
 
@@ -35,7 +37,8 @@ app.get('/postar', (req, res) => {
 });
 
 app.post('/postar', (req, res) => {
-  postagem.push(req.body.textoPostar);
+  postagem.push(req.body.conteudoPost);
+  tituloPost.push(req.body.tituloPost);
   res.redirect('/');
 });
 
